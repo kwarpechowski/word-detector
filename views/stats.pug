@@ -1,0 +1,43 @@
+html
+    head
+        title=query
+        link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M", crossorigin="anonymous")
+        link(href="style.css", rel="stylesheet")
+
+    body
+        .container
+            .card
+                .card-body
+                    .card-text
+                        p=query
+            each r in rank
+                .card
+                    .card-body
+                        h3.card-title=r.word
+                        .card-text
+                            .row
+                                each rank in r.ranks
+                                    .col
+                                        h5=rank.name
+                                        table.table
+                                            each val, index in rank.data
+                                                tr
+                                                    td=index
+                                                    if val > 0.2
+                                                        td
+                                                            strong.red=val
+                                                    else
+                                                        td=val
+                                .col
+                                    h5="Custom"
+                                    table.table
+                                        each val, index in r.customRank
+                                            tr
+                                                td=index
+                                                if val > 0.2
+                                                    td
+                                                        strong.red=val
+                                                else
+                                                    td=val
+                                                td
+                                                    a(href="/setCustom?q="+query+"&cat="+index+"&v="+r.word)="SET"

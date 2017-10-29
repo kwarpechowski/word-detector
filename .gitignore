@@ -1,0 +1,5 @@
+yarn.lock
+data
+node_modules
+.idea
+!data/README.md
