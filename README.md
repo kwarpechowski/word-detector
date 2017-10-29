@@ -16,13 +16,13 @@
  (all parsed data is located in `result` dir)
  
  ## Step 2 - train data
-  * `yar run train all`
-  * `yar run train person_org`
-  * `yar run train without_subtype`
+  * `yarn run train all`
+  * `yarn run train person_org`
+  * `yarn run train without_subtype`
   
   (all trained data is located in `trained` dir)
   
  ## Step - 3 - show result
  
- * `yarn run server'
+ * `yarn run server`
  *  go to http://localhost:3000/?q=Jan%20ma%20kota
