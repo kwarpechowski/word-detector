@@ -1,28 +1,23 @@
-# Experiment with detecting special names in the text - neural network
+Użyto biblioteki 'natural' dla języka javascript - https://github.com/NaturalNode/natural
+Użyto wszystkich danych z korpusu.
 
-## Requirements
-* NodeJS
-* yarn package manager
+Polecenia:
 
-## Step 0 - preparing data
-* `yarn install`
-* download 'The National Corpus of Polish - NKJP' and put all data in `data' directory.
+1. `node parser.js` - parsuje korpus z katalogu `data` do pliku `result.json`
+2. `node train.js` - trenuje  dane z pliku `result.json` do pliku 
+3. `node test.js` - testuje i zwraca wyniki
 
-## Step 1 - data parse
- * `yarn run parseAll` - parse data with save all categories and subcategories
- * `yarn run parseWithoutSubtype` - parse data with save only main categories
- * `yarn run parsePersonOrg` - parse data with save only 'person', 'org' and 'other' category
- 
- (all parsed data is located in `result` dir)
- 
- ## Step 2 - train data
-  * `yarn run train all`
-  * `yarn run train person_org`
-  * `yarn run train without_subtype`
-  
-  (all trained data is located in `trained` dir)
-  
- ## Step - 3 - show result
- 
- * `yarn run server`
- *  go to http://localhost:3000/?q=Jan%20ma%20kota
+```
+prec 0.977515330456507
+F1 0.9814160300991905
+recall 1
+```
+
+
+4. `node liner2.js` przygotowuje plik tekstowy do webowego interfejsu liner2 - `liner.txt`
+5. dane z pliku `liner.txt` nalezy uzyc w http://ws.clarin-pl.eu/ner.shtml. wynikowy xml zapisac do liner.xml
+6. `node linerparser.js` - parsuje wynik z liner.xml oraz sprawdza wyniki z prezentowanym rozwiazaniem
+
+```
+0.532938564026647 - takich samych otagowan
+```

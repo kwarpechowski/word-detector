@@ -84,7 +84,7 @@ async function getAll() {
     allData = Object.assign(allData, data);
   }
 
-  fs.writeFileSync('./result/result_person_org.json', JSON.stringify(allData));
+  fs.writeFileSync('./result.json', JSON.stringify(allData));
 }
 
 getAll();
